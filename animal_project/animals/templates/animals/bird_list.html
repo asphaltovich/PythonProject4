@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список птиц</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Список птиц</h1>
+    {% if birds %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Обитание</th>
+                <th>Размах крыльев (см)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bird in birds %}
+            <tr>
+                <td>{{ bird.get_name }}</td>
+                <td>{{ bird.get_habitat }}</td>
+                <td>{{ bird.get_wing_span }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Нет доступных птиц для отображения.</p>
+    {% endif %}
+</body>
+</html>

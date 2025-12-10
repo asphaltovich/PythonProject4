@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Млекопитающие</title>
+</head>
+<body>
+    <h1>Список млекопитающих</h1>
+    <form method ="get">
+        <input type="text" name="search" value="{{ search_query }}"
+                        placeholder="Поиск по имени или обитанию">
+        <button type="submit">Поиск</button>
+    </form>
+    {% if mammals %}
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Обитание</th>
+                <th>Цвет шерсти</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mammal in mammals %}
+            <tr>
+                <td>{{ mammal.get_name }}</td>
+                <td>{{ mammal.get_habitat }}</td>
+                <td>{{ mammal.get_fur_color }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Нет результатов, соответствующих поиску.</p>
+    {% endif %}
+</body>
+</html>
