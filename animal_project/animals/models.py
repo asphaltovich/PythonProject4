@@ -34,6 +34,10 @@ class Bird(Animal):
         super().__init__(name, habitat)
         self.__wing_span = wing_span
 
+    def get_wing_span(self):
+        return self.__wing_span
+
+
 #список всех млекопитающих
 MAMMALS = [
     Mammal("Лев", "Саванна", "Золотистый"),
