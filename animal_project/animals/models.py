@@ -51,4 +51,3 @@ BIRDS = [
     Bird("Попугай", "Джунгли", 80),
     Bird("Пингвин", "Антарктида", 100),
 ]
-# Create your models here.
