@@ -2,15 +2,21 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Млекопитающие</title>
+    <title>Список млекопитающих</title>
 </head>
 <body>
     <h1>Список млекопитающих</h1>
-    <form method ="get">
-        <input type="text" name="search" value="{{ search_query }}"
-                        placeholder="Поиск по имени или обитанию">
-        <button type="submit">Поиск</button>
+    <form method="get">
+        <label for="filter_habitat">Фильтр по среде обитания:</label>
+        <select name="filter_habitat" id="filter_habitat">
+            <option value="">Все</option>
+            <option value="лес" {% if filter_habitat == "лес" %}selected{% endif %}>Лес</option>
+            <option value="саванна" {% if filter_habitat == "саванна" %}selected{% endif %}>Саванна</option>
+            <option value="тундра" {% if filter_habitat == "тундра" %}selected{% endif %}>Тундра</option>
+        </select>
+        <button type="submit">Применить</button>
     </form>
+
     {% if mammals %}
     <table>
         <thead>
@@ -31,7 +37,7 @@
         </tbody>
     </table>
     {% else %}
-    <p>Нет результатов, соответствующих поиску.</p>
+    <p>Нет млекопитающих, соответствующих фильтру.</p>
     {% endif %}
 </body>
 </html>
