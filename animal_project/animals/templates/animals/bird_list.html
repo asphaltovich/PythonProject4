@@ -2,42 +2,39 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Список млекопитающих</title>
+    <title>Список птиц</title>
 </head>
 <body>
-    <h1>Список млекопитающих</h1>
-    <form method="get">
+    <h1>Список птиц</h1>
+     <form method="get">
         <label for="filter_habitat">Фильтр по среде обитания:</label>
         <select name="filter_habitat" id="filter_habitat">
             <option value="">Все</option>
-            <option value="лес" {% if filter_habitat == "лес" %}selected{% endif %}>Лес</option>
-            <option value="саванна" {% if filter_habitat == "саванна" %}selected{% endif %}>Саванна</option>
-            <option value="тундра" {% if filter_habitat == "тундра" %}selected{% endif %}>Тундра</option>
+            <option value="орёл" {% if filter_habitat == "орёл" %}selected{% endif %}>Орёл</option>
+            <option value="попугай" {% if filter_habitat == "попугай" %}selected{% endif %}>Попугай</option>
+            <option value="пингвин" {% if filter_habitat == "пингвин" %}selected{% endif %}>Пингвин</option>
         </select>
         <button type="submit">Применить</button>
     </form>
-
-    {% if mammals %}
+    {% if birds %}
     <table>
         <thead>
             <tr>
                 <th>Название</th>
-                <th>Обитание</th>
-                <th>Цвет шерсти</th>
+                <th>Среда обитания</th>
             </tr>
         </thead>
         <tbody>
-            {% for mammal in mammals %}
+            {% for bird in birds %}
             <tr>
-                <td>{{ mammal.get_name }}</td>
-                <td>{{ mammal.get_habitat }}</td>
-                <td>{{ mammal.get_fur_color }}</td>
+                <td>{{ bird.get_name }}</td>
+                <td>{{ bird.get_habitat }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     {% else %}
-    <p>Нет млекопитающих, соответствующих фильтру.</p>
+    <p>Нет птиц, соответствующих запросу.</p>
     {% endif %}
 </body>
 </html>
